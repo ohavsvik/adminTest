@@ -23,6 +23,11 @@
     <nav class="navbar">
         <a class="<?= $pages["admin.php"] ?>" href="admin.php">Admin</a>
         <a class="<?= $pages["user.php"] ?>" href="user.php">User</a>
+        <a class="<?= $pages["anotheradmin.php"] ?>" href="anotheradmin.php">Another admin page</a>
     </nav>
-    <a href="?logout">Log out</a>
+    <?php
+        if(isAdmin()){
+            echo "<a href='?logout'>Log out</a>";
+        }
+    ?>
     <div class="site-content">

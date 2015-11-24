@@ -10,6 +10,7 @@ session_start();
 $pages = array(
     "admin.php" => "",
     "user.php" => "",
+    "anotheradmin.php" => ""
 );
 
 foreach ($pages as $k => $value) {
@@ -22,14 +23,18 @@ function adminAccess($name, $password) {
     $adminPassword = "password";
 
     if ($name === $adminName && $password === $adminPassword) {
-        $_SESSION['adminName'] = "admin";
-        $_SESSION['adminPassword'] = "password";
+        $_SESSION['adminName'] = $adminName;
+        $_SESSION['adminPassword'] = $adminPassword;
         return true;
     } else {
         $_SESSION['adminName'] = "";
         $_SESSION['adminPassword'] = "";
         return false;
     }
+}
+
+function isAdmin() {
+    return adminAccess($_SESSION['adminName'], $_SESSION['adminPassword']);
 }
 
 function logout () {
