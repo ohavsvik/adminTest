@@ -1,0 +1,254 @@
+html {
+    background-color: #558080;
+    overflow-y: scroll;
+}
+
+.me {
+    width: 400px;
+    padding: 7px;
+}
+
+body {
+    margin: 8px auto;
+    padding: 8px;
+    width: 980px;
+    background-color: #fff;
+    border-radius: 10px;
+
+}
+
+article {
+    float: left;
+}
+
+
+.site-footer {
+    text-align: center;
+}
+
+.site-header {
+    background-color: #fff;
+    overflow: auto; /* clear fix to make div span all elements */
+}
+
+.site-header img {
+    float: left;
+}
+
+.site-content {
+    padding-left: 5%;
+    padding-right: 5%;
+    overflow: auto;
+}
+
+.header-text {
+    float: left;
+    width: 40%;
+}
+
+.site-title {
+    display: block;
+    width: 100%;
+    padding-top: 50px;
+    padding-left: 50px;
+    font-size: 32px;
+    overflow: auto;
+}
+
+.color-chooser {
+    display: block;
+    width: 30%;
+    padding-top: 50px;
+    padding-left: 50px;
+    font-size: 16px;
+    overflow: auto;
+    float:right;
+}
+
+.site-slogan {
+    display: block;
+    padding-left: 50px;
+    font-style: italic;
+    overflow: auto;
+}
+
+.navbar, .navbar-side {
+    padding: 1em;
+    background-color: #fff;
+}
+
+.navbar a {
+    display: inline-block;
+    padding: 0.5em 1em;
+    border: 1px solid #999;
+    text-decoration: none;
+    border-radius: 7px;
+}
+
+.navbar .selected, .navbar-side .selected{
+    background-color: #558080;
+    color: #fff;
+}
+
+.navbar a:hover, .navbar-side a:hover {
+    background-color: #557080;
+    text-decoration: none;
+    color: #fff;
+    opacity: 0.5;
+}
+
+.navbar-side a {
+    display: inline-block;
+    padding: 0.1em 0.4em;
+    border: 1px solid #999;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+.navbar-side .multi-selected {
+    background-color: #558080;
+    border-radius: 5px;
+    color: white;
+}
+
+.admin-navbar {
+    float:left;
+    font-size: 14px;
+    width: 100%;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+}
+.admin-navbar a {
+    padding: 0.2em 1em;
+    border-radius: 5px;
+}
+
+
+.left {
+    float: left;
+}
+/* for all values */
+a {
+    text-decoration: none;
+}
+
+/* unvisited link */
+a:link {
+    color: #008080;
+}
+
+/* visited link */
+a:visited {
+    color: #80888F;
+}
+
+/* mouse over link */
+a:hover {
+    color: #008080;
+    text-decoration: underline;
+}
+
+/* selected link */
+a:active {
+    color: #00f;
+}
+main {
+    min-height: 30em;
+}
+.container {
+    margin: 20px 20px 0 0;
+    overflow: auto
+}
+.post-content {
+    width: 50%;
+    float: left;
+}
+
+.post-thumb {
+    float: left;
+    display: block;
+}
+
+
+.author {
+    font-style: italic;
+}
+
+li {
+    list-style: none;
+}
+
+aside {
+    float: right;
+    width: 30%;
+}
+
+.stylechooser-content {
+    width: 70%;
+}
+
+.byline {
+    margin-top: 33px;
+}
+.byline a, .byline p{
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 10px;
+}
+
+.showTable table {
+color: #333; /* Lighten up font color */
+font-family: Helvetica, Arial, sans-serif; /* Nicer font */
+width: 640px;
+border-collapse:
+collapse; border-spacing: 0;
+}
+
+.showTable td, .showTable th {
+    border: 1px solid #CCC; height: 30px;
+} /* Make cells a bit taller */
+
+.showTable th {
+    background: #F3F3F3; /* Light grey background */
+    font-weight: bold; /* Make sure they're bold */
+}
+
+.showTable td {
+    background: #FAFAFA; /* Lighter grey background */
+    text-align: center; /* Center our text */
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+}
+
+td.noBorder{
+    border-style: none;
+    height: 30px;
+}
+
+.button {
+    -webkit-border-radius: 3;
+    -moz-border-radius: 3;
+    border-radius: 3px;
+    font-family: Arial;
+    color: #858585;
+    background-color: white;
+    font-size: 12px;
+    padding: 5px 12px 5px 12px;
+    border: solid #5aa0cc 2px;
+    text-decoration: none;
+}
+
+.button:hover {
+    background: #d1e1eb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/**
+ * responsive
+ */
+@media (max-width: 980px) {
+    body {
+        width: auto;
+    }
+}
