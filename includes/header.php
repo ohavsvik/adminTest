@@ -24,6 +24,7 @@
         <a class="<?= $pages["admin.php"] ?>" href="admin.php">Admin</a>
         <a class="<?= $pages["user.php"] ?>" href="user.php">User</a>
         <a class="<?= $pages["anotheradmin.php"] ?>" href="anotheradmin.php">Another admin page</a>
+        <a class="<?= $pages["login.php"] ?>" href="login.php">Login</a>
     </nav>
     <?php
         if(isAdmin()){

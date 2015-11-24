@@ -3,14 +3,11 @@ $name = substr(preg_replace('/[^a-z\d]/i', '', __DIR__), -30);
 session_name($name);
 session_start();
 
-//REMOVE ??
-//$_SESSION['adminName'] = "";
-//$_SESSION['adminPassword'] = "";
-
 $pages = array(
     "admin.php" => "",
     "user.php" => "",
-    "anotheradmin.php" => ""
+    "anotheradmin.php" => "",
+    "login.php" => ""
 );
 
 foreach ($pages as $k => $value) {

@@ -4,12 +4,7 @@
     if(isAdmin()){
         include("includes/admincontent.php");
     } else {
-        include("includes/adminlogin.php");
-
-        if (isset($_GET['feedback'])) {
-            echo "<p>Wrong input!</p>";
-        }
+        header("Location: login.php?referer=". basename($_SERVER['SCRIPT_FILENAME']));
     }
 
     include("includes/footer.php");
-?>
