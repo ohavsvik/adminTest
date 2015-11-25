@@ -39,8 +39,8 @@
         <a class="<?= $pages["login.php"] ?>" href="login.php">Login</a>
     </nav>
     <?php
-        if(isAdmin()){
-            echo "<a href='?logout'>Log out</a>";
-        }
+    if (isAdmin()) {
+        echo "<a href='?logout'>Log out</a>";
+    }
     ?>
     <div class="site-content">

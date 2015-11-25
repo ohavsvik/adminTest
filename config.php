@@ -20,14 +20,17 @@ echo "logged = " . $_SESSION['logged'];
 /**
 * Compares the parameters with the current admin name and password.
 * If it does, the session varables 'adminName' and 'adminPassword' are
-* initiated.
+* initiated. If checked, it will also save cookies with the name and password.
 *
 * @param string $name The name to match.
 * @param string $password The password to match.
+* @param bool $rememberMe A bool that determines if the name and password is
+*             saved as cookies
 *
 * @return bool If the login was successful or not
 */
-function adminAccess($name, $password, $rememberMe) {
+function adminAccess($name, $password, $rememberMe)
+{
 
     $adminName = $_SESSION['correctAdminName'];
     $adminPassword = $_SESSION['correctAdminPassword'];
@@ -35,10 +38,8 @@ function adminAccess($name, $password, $rememberMe) {
     if ($name === $adminName && $password === $adminPassword) {
         $_SESSION['logged'] = "true";
         if ($rememberMe) {
-            //setcookie('adminName', $name, time() + (86400 * 7));
-            //setcookie('adminPassword', $password, time() + (86400 * 7));
-            setcookie('adminName', $name, time() + 20);
-            setcookie('adminPassword', $password, time() + 20);
+            setcookie('adminName', $name, time() + 20); // 20 seconds
+            setcookie('adminPassword', $password, time() + 20); // 20 seconds
         }
         return true;
     } else {
@@ -52,7 +53,8 @@ function adminAccess($name, $password, $rememberMe) {
 *
 * @return bool
 */
-function isAdmin() {
+function isAdmin()
+{
     return $_SESSION['logged'] === "true" ? true : false;
 }
 
@@ -61,6 +63,7 @@ function isAdmin() {
 *
 * @return void
 */
-function logout () {
+function logout()
+{
     $_SESSION['logged'] = "false";
 }

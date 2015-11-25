@@ -1,7 +1,7 @@
 <?php
 include("includes/header.php");
 
-if(isAdmin()){
+if (isAdmin()) {
     echo "<h4>You are logged in!</h4>";
 } else {
     include("includes/adminlogin.php");

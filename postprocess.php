@@ -12,8 +12,6 @@ if (isset($_COOKIE['adminPassword'])) {
     $password = $_COOKIE['adminPassword'];
 }
 
-//echo "<br>" . $_POST['password'] . "-" . $_POST['password'] . "-" . $rememberMe;
-//die();
 //If the user types in wrong information
 if (!adminAccess($username, $password, $rememberMe)) {
     $_SESSION["feedback"] = "true";
