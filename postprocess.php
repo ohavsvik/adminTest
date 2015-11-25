@@ -5,9 +5,17 @@ $username = isset($_POST['username']) ? $_POST['username'] : "";
 $password = isset($_POST['password']) ? $_POST['password'] : "";
 $referer = isset($_POST['referer']) ? $_POST['referer'] : "";
 
-$feedback = "";
+$rememberMe = (isset($_POST['rememberme'])
+                    && $_POST['rememberme'] === "yes") ? true : false;
+
+if (isset($_COOKIE['adminPassword'])) {
+    $password = $_COOKIE['adminPassword'];
+}
+
+//echo "<br>" . $_POST['password'] . "-" . $_POST['password'] . "-" . $rememberMe;
+//die();
 //If the user types in wrong information
-if (!adminAccess($username, $password)) {
+if (!adminAccess($username, $password, $rememberMe)) {
     $_SESSION["feedback"] = "true";
 }
 

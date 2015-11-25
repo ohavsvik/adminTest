@@ -13,6 +13,10 @@ if (!isset($_SESSION['logged'])) {
     $_SESSION['logged'] = "false";
 }
 
+echo "adminName cookie= " . isset($_COOKIE['adminName']) . "<br>";
+echo "adminPassword cookie = " . isset($_COOKIE['adminPassword']) . "<br>";
+echo "logged = " . $_SESSION['logged'];
+
 /**
 * Compares the parameters with the current admin name and password.
 * If it does, the session varables 'adminName' and 'adminPassword' are
@@ -23,13 +27,19 @@ if (!isset($_SESSION['logged'])) {
 *
 * @return bool If the login was successful or not
 */
-function adminAccess($name, $password) {
+function adminAccess($name, $password, $rememberMe) {
 
     $adminName = $_SESSION['correctAdminName'];
     $adminPassword = $_SESSION['correctAdminPassword'];
 
     if ($name === $adminName && $password === $adminPassword) {
         $_SESSION['logged'] = "true";
+        if ($rememberMe) {
+            //setcookie('adminName', $name, time() + (86400 * 7));
+            //setcookie('adminPassword', $password, time() + (86400 * 7));
+            setcookie('adminName', $name, time() + 20);
+            setcookie('adminPassword', $password, time() + 20);
+        }
         return true;
     } else {
         $_SESSION['logged'] = "false";
