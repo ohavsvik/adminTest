@@ -1,6 +1,18 @@
 <?php
-    include "config.php";
+    include("config.php");
     $title = basename($_SERVER["SCRIPT_FILENAME"], '.php');
+
+    //Used to check which page is selected
+    $pages = array(
+        "admin.php" => "",
+        "user.php" => "",
+        "anotheradmin.php" => "",
+        "login.php" => ""
+    );
+    //Loops through and compares the current page with the $pages-array
+    foreach ($pages as $k => $value) {
+        $pages[$k] = basename($_SERVER['SCRIPT_NAME']) == $k ? "selected" : "";
+    }
 
     if (isset($_GET['logout'])) {
         logout();

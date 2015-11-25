@@ -1,4 +1,5 @@
 <?php
+ob_start(); //turns on the output buffer
 include("includes/header.php");
 
 echo "<h4>Another page with secrets</h4>";

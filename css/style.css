@@ -197,11 +197,11 @@ aside {
 }
 
 .showTable table {
-color: #333; /* Lighten up font color */
-font-family: Helvetica, Arial, sans-serif; /* Nicer font */
-width: 640px;
-border-collapse:
-collapse; border-spacing: 0;
+    color: #333; /* Lighten up font color */
+    font-family: Helvetica, Arial, sans-serif; /* Nicer font */
+    width: 640px;
+    border-collapse:
+    collapse; border-spacing: 0;
 }
 
 .showTable td, .showTable th {

@@ -6,8 +6,11 @@ if(isAdmin()){
 } else {
     include("includes/adminlogin.php");
 
-    if (isset($_GET['feedback'])) {
-        echo "<p>Wrong input!</p>";
+    if (isset($_SESSION['feedback'])) {
+        if ($_SESSION['feedback'] !== "") {
+            echo "<p>Wrong input!</p>";
+        }
+        $_SESSION['feedback'] = ""; //reset
     }
 }
 

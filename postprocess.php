@@ -8,15 +8,11 @@ $referer = isset($_POST['referer']) ? $_POST['referer'] : "";
 $feedback = "";
 //If the user types in wrong information
 if (!adminAccess($username, $password)) {
-    $symbol = "?";
-    if(isset($_GET['logout'])){
-        $symbol = "&";
-    }
-    $feedback = $symbol . "feedback";
+    $_SESSION["feedback"] = "true";
 }
 
 if ($referer === "" || $referer === "/") {
     $referer = $_SERVER['HTTP_REFERER'];
 }
 
-header("Location: " .  $referer  . $feedback);
+header("Location: " .  $referer);

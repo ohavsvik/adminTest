@@ -1,7 +1,7 @@
 <p>Please log in to access the admin content</p>
 <p>(Username: admin, Password: password)</p>
 <?php
-    $previous = isset($_GET['referer']) ? htmlentities($_GET['referer'], ENT_COMPAT, "UTF-8") : "";
+    $previous = isset($_GET['referer']) ? htmlentities($_GET['referer']) : "";
 ?>
 <form action="postprocess.php" method="post">
 <table>
