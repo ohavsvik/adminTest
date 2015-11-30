@@ -7,5 +7,4 @@ if (isAdmin()) {
 } else {
     header("Location: login.php?referer=". basename($_SERVER['SCRIPT_FILENAME']));
 }
-
 include("includes/footer.php");
