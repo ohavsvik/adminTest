@@ -4,7 +4,7 @@ include("includes/header.php");
 
 echo "<h4>Another page with secrets</h4>";
 
-if (isAdmin()) {
+if ($user->isAuthenticated()) {
     include("includes/admincontent.php");
 } else {
     header("Location: login.php?referer=" . basename($_SERVER['SCRIPT_FILENAME']));

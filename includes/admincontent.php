@@ -1,1 +1,1 @@
-<p>YOU CAN NOW VIEW ADMIN CONTENT</p>
+<p>You can now view admin only content.</p>

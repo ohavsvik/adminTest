@@ -29,18 +29,13 @@
 
 <body>
     <header class="site-header">
-        <h3> Admin test page </h3>
+        <h3> Admin test page v.2</h3>
     </header>
 
     <nav class="navbar">
-        <a class="<?= $pages["admin.php"] ?>" href="admin.php">Admin</a>
-        <a class="<?= $pages["user.php"] ?>" href="user.php">User</a>
+        <a class="<?= $pages["admin.php"] ?>" href="admin.php">Admin content</a>
+        <a class="<?= $pages["user.php"] ?>" href="user.php">Content</a>
         <a class="<?= $pages["anotheradmin.php"] ?>" href="anotheradmin.php">Another admin page</a>
         <a class="<?= $pages["login.php"] ?>" href="login.php">Login</a>
     </nav>
-    <?php
-    if (isAdmin()) {
-        echo "<a href='?logout'>Log out</a>";
-    }
-    ?>
     <div class="site-content">

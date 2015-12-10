@@ -1,17 +1,37 @@
 <?php
 include("includes/header.php");
 
-if (isAdmin()) {
-    echo "<h4>You are logged in!</h4>";
-} else {
-    include("includes/adminlogin.php");
+$html = "";
 
-    if (isset($_SESSION['feedback'])) {
-        if ($_SESSION['feedback'] !== "") {
-            echo "<p>Wrong input!</p>";
+if (isset($_POST['login'])) {
+    $name     = isset($_POST['acronym']) ? strip_tags($_POST['acronym']) : null;
+    $password = isset($_POST['password']) ? strip_tags($_POST['password']) : null;
+
+    if (!$user->login($name, $password)) {
+        if (!$user->isAuthenticated()) {
+            $html .= "Fel användarnamn eller lösenord.";
         }
-        $_SESSION['feedback'] = ""; //reset
+    } else {
+        if (isset($_GET['referer'])) {
+            $referer = htmlentities($_GET['referer']);
+            header("Location:" . $referer);
+        }
     }
 }
+
+if (isset($_POST['logout'])) {
+    if (!$user->logout()) {
+        $html .= "Du är redan utloggad";
+    }
+}
+
+if ($user->isAuthenticated()) {
+    $html .= "Du är inloggad";
+    $html .= $user->generateLogoutForm();
+} else {
+    $html .= $user->generateLoginForm();
+}
+
+echo $html;
 
 include("includes/footer.php");
