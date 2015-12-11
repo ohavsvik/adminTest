@@ -134,7 +134,7 @@ a {
 
 /* unvisited link */
 a:link {
-    color: #008080;
+    color: 1008080;
 }
 
 /* visited link */
@@ -144,13 +144,13 @@ a:visited {
 
 /* mouse over link */
 a:hover {
-    color: #008080;
+    color: 1008080;
     text-decoration: underline;
 }
 
 /* selected link */
 a:active {
-    color: #00f;
+    color: 100f;
 }
 main {
     min-height: 30em;
@@ -252,3 +252,4 @@ td.noBorder{
         width: auto;
     }
 }
+

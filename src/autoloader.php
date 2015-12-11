@@ -1,7 +1,6 @@
 <?php
 /**
  * Default exception handler.
- *
  */
 function myExceptionHandler($exception)
 {
@@ -13,7 +12,6 @@ set_exception_handler('myExceptionHandler');
 
 /**
  * Autoloader for classes.
- *
  */
 function myAutoloader($class)
 {
@@ -21,7 +19,7 @@ function myAutoloader($class)
     if (!is_file($path)) {
         throw new Exception("Classfile '{$class}' does not exists.");
     }
-        include($path);
+        include $path;
 }
 spl_autoload_register('myAutoloader');
 

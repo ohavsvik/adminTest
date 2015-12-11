@@ -68,9 +68,9 @@ class CDatabase
     /**
      * Excecutes and returns the restult of a given query
      *
-     * @param  string $query  Query with ?
-     * @param  array  $params Array with parameters to use in the wuery
-     * @param  boolean $debug If a debug message should be shown
+     * @param  string  $query  Query with ?
+     * @param  array   $params Array with parameters to use in the wuery
+     * @param  boolean $debug  If a debug message should be shown
      * @return array with the ressult
      */
     public function executeQueryAndFetchAll($query, $params = array(), $debug = false)
@@ -95,9 +95,9 @@ class CDatabase
     /**
     * Execute a SQL-query and ignore the resultset.
     *
-    * @param string $query the SQL query with ?.
-    * @param array $params array which contains the argument to replace ?.
-    * @param boolean $debug defaults to false, set to true to print out the sql query before executing it.
+    * @param  string  $query  the SQL query with ?.
+    * @param  array   $params array which contains the argument to replace ?.
+    * @param  boolean $debug  defaults to false, set to true to print out the sql query before executing it.
     * @return boolean returns TRUE on success or FALSE on failure.
     */
     public function executeQuery($query, $params = array(), $debug = false)
