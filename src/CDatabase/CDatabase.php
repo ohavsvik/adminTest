@@ -3,6 +3,11 @@
 /**
  * Database wrapper, provides a database API for the framework but hides details of implementation.
  *
+ * @category
+ * @package
+ * @author
+ * @license
+ * @link
  */
 class CDatabase
 {
@@ -11,7 +16,7 @@ class CDatabase
     * Members
     */
     private $options;                   // Options used when creating the PDO object
-    private $db   = null;               // The PDO object
+    private $database   = null;               // The PDO object
     private $stmt = null;               // The latest statement used to execute a query
     private static $numQueries = 0;     // Count all queries made
     private static $queries = array();  // Save all queries for debugging purpose
@@ -22,7 +27,6 @@ class CDatabase
     * Constructor creating a PDO object connecting to a choosen database.
     *
     * @param array $options containing details for connecting to the database.
-    *
     */
     public function __construct($options)
     {
@@ -37,7 +41,7 @@ class CDatabase
         $this->options = array_merge($default, $options);
 
         try {
-            $this->db = new PDO(
+            $this->database = new PDO(
                 $this->options['dsn'],
                 $this->options['username'],
                 $this->options['password'],
@@ -57,7 +61,7 @@ class CDatabase
             unset($_SESSION['CDatabase']);
         }
 
-        $this->db->SetAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, $this->options['fetch_style']);
+        $this->database->SetAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, $this->options['fetch_style']);
     }
 
 
@@ -82,7 +86,7 @@ class CDatabase
             "<p><pre>" . print_r($params, 1) . "</pre></p>";
         }
 
-        $this->stmt = $this->db->prepare($query);
+        $this->stmt = $this->database->prepare($query);
         $this->stmt->execute($params);
 
         return $this->stmt->fetchAll();
@@ -107,7 +111,7 @@ class CDatabase
                 self::$numQueries . "</p><p><pre>".print_r($params, 1)."</pre></p>";
         }
 
-        $this->stmt = $this->db->prepare($query);
+        $this->stmt = $this->database->prepare($query);
         return $this->stmt->execute($params);
 
         return null;
@@ -137,7 +141,7 @@ class CDatabase
     */
     public function lastInsertId()
     {
-        return $this->db->lastInsertid();
+        return $this->database->lastInsertid();
     }
 
     /**

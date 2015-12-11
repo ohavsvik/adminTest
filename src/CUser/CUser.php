@@ -1,28 +1,34 @@
 <?php
 /**
  * A class which handles user data from a database
+ *
+ * @category
+ * @package
+ * @author
+ * @license
+ * @link
  */
 class CUser
 {
     private $acronym;
     private $name;
-    private $db;
+    private $database;
 
 
     /**
      * Constructor
      *
-     * @param CDatabase $db The database object that should be used
+     * @param CDatabase $database The database object that should be used
      *                      Should have a table named 'User' which should have
-     *                      'acronym', 'name' and password columns.
+     *                      'acronym', 'name' and 'password' columns.
      */
-    public function __construct($db)
+    public function __construct($database)
     {
         if ($this->isAuthenticated()) {
             $this->acronym = $_SESSION['user']->acronym;
             $this->name = $_SESSION['user']->name;
         }
-        $this->db = $db;
+        $this->database = $database;
     }
 
 
@@ -41,7 +47,7 @@ class CUser
             //Don't want to store the password in the SESSION
             $sql = "SELECT acronym, name FROM User WHERE acronym = ? AND password = md5(concat(?, salt))";
             $params = array($user, $password);
-            $res = $this->db->executeQueryAndFetchAll($sql, $params);
+            $res = $this->database->executeQueryAndFetchAll($sql, $params);
 
             if (isset($res[0])) {
                 $_SESSION['user'] = $res[0];
@@ -78,11 +84,9 @@ class CUser
      */
     public function generateLoginForm()
     {
-        $form = "";
-        if ($this->isAuthenticated()) {
-            $form .= "Du är inloggad.";
-        } else {
-            $form .= <<<EOD
+        $form = "Du är inloggad.";
+        if (!$this->isAuthenticated()) {
+            $form = <<<EOD
             <form method="post" action="">
                 <p><input type="text" name="acronym" value="" placeholder="Användarnamn"></p>
                 <p><input type="password" name="password" value="" placeholder="Lösenord"></p>
@@ -101,15 +105,14 @@ EOD;
      */
     public function generateLogoutForm()
     {
-        $form = "";
-        if (!$this->isAuthenticated()) {
-            $form .= "Du är inte inloggad.";
-        } else {
-            $form .= <<<EOD
+        $form = "Du är inte inloggad.";
+        if ($this->isAuthenticated()) {
+            $form = <<<EOD
             <form method="post" action="">
                 <p class="submit"><input type="submit" name="logout" value="Logga ut"></p>
             </form>
 EOD;
+            return $form;
         }
         return $form;
     }
@@ -131,11 +134,7 @@ EOD;
      */
     public function getName()
     {
-        if ($this->isAuthenticated()) {
-            return $this->name;
-        } else {
-            return null;
-        }
+        return $this->isAuthenticated() ? $this->name : null;
     }
 
 
@@ -144,10 +143,6 @@ EOD;
      */
     public function getAcronym()
     {
-        if ($this->isAuthenticated()) {
-            return $this->acronym;
-        } else {
-            return null;
-        }
+        return $this->isAuthenticated() ? $this->acronym : null;
     }
 }

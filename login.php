@@ -1,5 +1,9 @@
 <?php
-include("includes/header.php");
+/**
+ * The login page
+ */
+
+require "includes/header.php";
 
 $html = "";
 
@@ -34,4 +38,4 @@ if ($user->isAuthenticated()) {
 
 echo $html;
 
-include("includes/footer.php");
+require "includes/footer.php";

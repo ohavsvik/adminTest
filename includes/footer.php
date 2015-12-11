@@ -1,3 +1,9 @@
+<?php
+/**
+ * The footer
+ */
+?>
+
 </div><!-- site-content end div-->
 <footer class="site-footer">
 
@@ -15,7 +21,7 @@
         $memoryUsed = memory_get_peak_usage(true);
         $loadTime   = microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'];
     ?>
-    <p>Time to load page: <?=round($loadTime, 4)?>. Files included: <?=$numFiles?>. Memory used: <?=round($memoryUsed)?>.</p>
+    <p>Time to load page: <?php echo round($loadTime, 4)?>. Files included: <?php echo $numFiles?>. Memory used: <?php echo round($memoryUsed)?>.</p>
 
 </footer>
 </body>
