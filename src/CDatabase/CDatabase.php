@@ -149,7 +149,7 @@ class CDatabase
      */
     public function saveDebug($debug = null)
     {
-        if ($debug) {
+        if (!is_null($debug)) {
             self::$queries[] = $debug;
             self::$params[] = null;
         }
