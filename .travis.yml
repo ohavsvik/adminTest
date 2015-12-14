@@ -19,6 +19,12 @@ git:
 
 
 
+matrix:
+    allow_failures:
+        - php: nightly
+
+
+
 addons:
     apt:
         packages:
