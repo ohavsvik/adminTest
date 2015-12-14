@@ -80,12 +80,6 @@ class CDatabase
         self::$params[] = $params;
         self::$numQueries++;
 
-        if ($debug) {
-            echo "<p>Query = <br/><pre>{$query}</pre></p>
-            <p>Num query = " . self::$numQueries . "</p>" .
-            "<p><pre>" . print_r($params, 1) . "</pre></p>";
-        }
-
         $this->stmt = $this->database->prepare($query);
         $this->stmt->execute($params);
 
@@ -106,10 +100,6 @@ class CDatabase
         self::$queries[] = $query;
         self::$params[] = $params;
         self::$numQueries++;
-        if ($debug) {
-            echo "<p>Query = <br/><pre>{$query}</pre></p><p>Num query = " .
-                self::$numQueries . "</p><p><pre>".print_r($params, 1)."</pre></p>";
-        }
 
         $this->stmt = $this->database->prepare($query);
         return $this->stmt->execute($params);
@@ -127,11 +117,13 @@ class CDatabase
     {
         $html  = '<p><i>You have made ' . self::$numQueries . ' database queries.</i></p><pre>';
 
+        // commennts for validation
+        /*
         foreach (self::$queries as $key => $val) {
             $params = empty(self::$params[$key]) ? null : htmlentities(print_r(self::$params[$key], 1)) . '<br/></br>';
             $html .= $val . '<br/></br>' . $params;
         }
-
+        */
         return $html . '</pre>';
     }
 
